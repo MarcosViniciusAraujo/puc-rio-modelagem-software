@@ -1,22 +1,22 @@
 class Motorista:
-    _id : int
-    _idade : int
-    _nome : str
-    _nota : float
-    _num_viagens : int
-    _coordenada : str
+    id : str
+    idade : int
+    nome : str
+    nota : float
+    num_viagens : int
+    coordenada : str
 
     def __init__(self, 
-        id: int, 
-        idade: int, 
-        nome: str, 
-        nota: float, 
-        num_viagens: int, 
-        corrdenada: str):
+        _id: str, 
+        _idade: int, 
+        _nome: str, 
+        _nota: float, 
+        _num_viagens: int, 
+        _corrdenada: str):
         
-        _id = id
-        _idade = idade
-        _nome = nome
-        _nota = nota
-        _num_viagens = num_viagens
-        _corrdenada = corrdenada
+        self.id = _id
+        self.idade = _idade
+        self.nome = _nome
+        self.nota = _nota
+        self.num_viagens = _num_viagens
+        self.corrdenada = _corrdenada

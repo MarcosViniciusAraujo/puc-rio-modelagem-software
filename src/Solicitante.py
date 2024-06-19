@@ -11,3 +11,5 @@ class Solicitante:
         self.idade = _idade
         self.coordenada = _coordenada
         self.nota = _nota 
+    
+    

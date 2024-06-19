@@ -1,9 +1,10 @@
 from datetime import datetime
-from Enum import StatusViagem, TipoServico
+from Enum.StatusViagem import StatusViagem
+from Enum.TipoServico import TipoServico
 
-import Motorista
+from Motorista import Motorista
 
-class Corrida:
+class Corrida():
     
     id: str
     num_passageiros: int

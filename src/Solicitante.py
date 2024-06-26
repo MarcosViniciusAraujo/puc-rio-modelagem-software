@@ -1,43 +1,48 @@
+import json
+from .Corrida import Corrida
+from Enum.StatusViagem import StatusViagem
+
 class Solicitante:
-    def __init__(self, _id, nome, nota):
+    def __init__(self, _id: int, nome: str):
         self.id = _id
         self.nome = nome
-        self.nota = nota 
-        self.logado = False
-        self.corrida_ativa = False
-        self.local_partida = None
-        self.local_destino = None
-        self.tipo_viagem = None
-        self.metodo_pagamento = None
-
-    def logar(self):
-        self.logado = True
-
-    def solicitar_corrida(self, local_partida, local_destino, tipo_viagem, metodo_pagamento):
-        if not self.logado:
-            raise Exception("Solicitante precisa estar logado para solicitar uma corrida.")
+        self.corrida_ativa = None
+    
+    def cadastrar(self):
+        solicitantes = json.load(open('db/solicitantes.json'))
+        if solicitantes.get(self.id) is not None:
+            raise Exception("Solicitante já cadastrado.")
         
-        self.local_partida = local_partida
-        self.local_destino = local_destino
-        self.tipo_viagem = tipo_viagem
-        self.metodo_pagamento = metodo_pagamento
-        self.corrida_ativa = True
-        print(f"Corrida solicitada de {self.local_partida} para {self.local_destino}.")
+        solicitante = {'nome': self.nome}
+        solicitantes[self.id] = solicitante
+        
+        with open('db/solicitantes.json', 'w') as f:
+            json.dump(solicitantes, f, indent=4)
 
-    def selecionar_metodo_pagamento(self, metodo):
-        self.metodo_pagamento = metodo
-
-    def finalizar_corrida(self):
-        self.corrida_ativa = False
-        print("Corrida finalizada.")
-
-    def dar_nota_motorista(self, nota):
-        print(f"Solicitante deu a nota {nota} ao motorista de forma anônima.")
+    def solicitar_corrida(self, local_partida, local_destino, paradas, servico, metodo_pagamento):
+        corrida = Corrida()
+        corrida.buscar(local_partida, local_destino, paradas, servico, metodo_pagamento, self)
+        print(f"Corrida solicitada de {local_partida} para {local_destino}.")
+        self.corrida_ativa = corrida
 
     def cancelar_corrida(self):
-        if not self.corrida_ativa:
+        if self.corrida_ativa is None:
             raise Exception("Não há corrida ativa para cancelar.")
+        
+        if self.corrida_ativa.status in (
+            StatusViagem.PROCURANDO_LOCALIZACAO, 
+            StatusViagem.PROCURANDO_MOTORISTA,
+            StatusViagem.AGUARDANDO_CONFIRMACAO_MOTORISTA
+            ):
+            try:
+                self.corrida_ativa.CancelarCorrida(self)
+                print("Corrida cancelada.")
+            except:
+                print("Corrida não encontrada.")
+        else:
+            print("Corrida não pode ser cancelada.")
+        
 
-        self.corrida_ativa = False
+
 
     

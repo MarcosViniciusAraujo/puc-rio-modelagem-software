@@ -2,10 +2,10 @@ import time
 from src.Solicitante import Solicitante
 from src.Motorista import Motorista
 
-breno = Solicitante(1, 'breno')
+breno = Solicitante("1", 'breno')
 breno.cadastrar()
 
-motorista = Motorista(100, 'edmundo')
+motorista = Motorista("100", 'edmundo')
 motorista.cadastrar()
 
 breno.solicitar_corrida('av. dos filhos', 'av. dos filhos', None, 'VIP', 'black')

@@ -1,0 +1,58 @@
+{
+    "861c960c-bdff-4ef0-a948-e127983ea81c": {
+        "origem": "av. dos filhos",
+        "destino": "av. dos filhos",
+        "preco_efetivo": null,
+        "hora_inicio": "02/07/2024",
+        "prev_chegada_destino": 100,
+        "gorjeta_motorista": null,
+        "status": "VIAGEM_ANDAMENTO",
+        "servico": "VIP",
+        "motorista": "100",
+        "paradas": null,
+        "solicitantes": ["1"],
+        "metodo_pagamento": "black"
+    },
+    "e6ed9e0b-2171-4390-8b1f-8bd56407282f": {
+        "origem": "av. dos filhos",
+        "destino": "av. dos filhos",
+        "preco_efetivo": null,
+        "hora_inicio": "02/07/2024",
+        "prev_chegada_destino": 100,
+        "gorjeta_motorista": null,
+        "status": "VIAGEM_ANDAMENTO",
+        "servico": "VIP",
+        "motorista": "100",
+        "paradas": null,
+        "solicitantes": ["1"],
+        "metodo_pagamento": "black"
+    },
+    "8d02f54e-20b3-460a-aba7-8010bddcf054": {
+        "origem": "av. dos filhos",
+        "destino": "av. dos filhos",
+        "preco_efetivo": null,
+        "hora_inicio": "02/07/2024",
+        "prev_chegada_destino": 100,
+        "gorjeta_motorista": null,
+        "status": "VIAGEM_ANDAMENTO",
+        "servico": "VIP",
+        "motorista": "100",
+        "paradas": null,
+        "solicitantes": ["1"],
+        "metodo_pagamento": "black"
+    },
+    "4447c58b-73be-4506-b653-133484018d24": {
+        "origem": "av. dos filhos",
+        "destino": "av. dos filhos",
+        "preco_efetivo": null,
+        "hora_inicio": "02/07/2024",
+        "prev_chegada_destino": 100,
+        "gorjeta_motorista": null,
+        "status": "VIAGEM_CONCLUIDA",
+        "servico": "VIP",
+        "motorista": "100",
+        "paradas": null,
+        "solicitantes": ["1"],
+        "metodo_pagamento": "black"
+    }
+}
